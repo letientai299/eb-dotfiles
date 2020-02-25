@@ -38,9 +38,19 @@ down for working on the cloud.
 
 ## Caveats
 
-- Only tested on Amazon Linux 1 and 2.
+- Only tested on Amazon Linux 1 and 2. This might works on Centos, but I've not
+  tested yet.
 - This means to be used on **fresh new env**. It makes no effort to backup the
   existing config.
+
+## Contributions
+
+Feel free to submit pull requests to help:
+
+- Fix errors
+- Update docs
+- Make this work with more systems.
+- Reduce instalation time
 
 <!-- ref -->
 
