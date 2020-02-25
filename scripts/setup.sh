@@ -51,7 +51,7 @@ git clone https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && env PREFIX=~/.local make install
 
 echo_info "Install tmux"
-mkdir ~/.tmux-source &&
+mkdir -p ~/.tmux-source &&
   cd ~/.tmux-source &&
   wget https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz &&
   tar -zxf tmux-*.tar.gz &&
@@ -70,7 +70,7 @@ git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo_info "Install direnv"
 sudo yum install -y https://kojipkgs.fedoraproject.org//vol/fedora_koji_archive02/packages/direnv/2.12.2/1.fc28/x86_64/direnv-2.12.2-1.fc28.x86_64.rpm
-mkdir ~/.config && ln -fs $SCRIPT_DIR/../src/direnv ~/.config/direnv
+mkdir -p ~/.config && ln -fs $SCRIPT_DIR/../src/direnv ~/.config/direnv
 
 echo_info "Config global gitignore"
 git config --global core.excludesfile '~/.gitignore'
