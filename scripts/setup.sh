@@ -45,7 +45,7 @@ vim -c "PlugUpgrade" -c "qa!"
 vim -c "PlugUpdate" -c "qa!"
 
 echo_info "Install ranger"
-git clone --depth=1 https://github.com/ranger/ranger ~/.ranger
+git clone https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && sudo make install
 
 echo_info "Install tmux"
