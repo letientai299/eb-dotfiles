@@ -29,6 +29,8 @@ alias se="source ~/.zshrc"
 alias :q="exit"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# this is needed for ranger to work
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+eval "$(direnv hook zsh)"

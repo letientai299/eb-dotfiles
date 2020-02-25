@@ -45,9 +45,6 @@ vim -c "PlugUpdate" -c "qa!"
 echo_info "Install ranger"
 git clone https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && sudo make install
-# This is needed to start ranger
-echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.zshrc
-echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.bashrc
 
 echo_info "Install tmux"
 mkdir ~/.tmux-source &&
@@ -66,6 +63,9 @@ ln -fs $SCRIPT_DIR/../src/tmux/tmux.conf ~/.tmux.conf
 echo_info "Install tmux plugins"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
+
+echo_info "Install direnv"
+sudo yum install https://kojipkgs.fedoraproject.org//vol/fedora_koji_archive02/packages/direnv/2.12.2/1.fc28/x86_64/direnv-2.12.2-1.fc28.x86_64.rpm
 
 echo_info "Done. You might want to log out and login again to reload the config"
 
