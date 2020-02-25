@@ -42,6 +42,13 @@ echo_info "Install vim plugins"
 vim -c "PlugUpgrade" -c "qa!"
 vim -c "PlugUpdate" -c "qa!"
 
+echo_info "install ranger"
+git clone https://github.com/ranger/ranger ~/.ranger
+cd ~/.ranger && git checkout v1.9.3 && sudo make install
+# This is needed to start ranger
+echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.zshrc
+echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.bashrc
+
 echo_info "Done. You might want to log out and login again to reload the config"
 
 cd "$SCRIPT_DIR" || exit 1
