@@ -9,24 +9,17 @@ down for working on the cloud.
 ![demo](./images/demo.png)
 
 - Change default shell to zsh.
-
 - zsh:
-
   - Use [zgen][gh_zgen] to manage zsh plugins.
   - Install some plugins from [oh-my-zsh][gh_omz] and [other
     complestion](./src/zsh/zgenconfig).
-
 - vim:
-
   - Use [vim-plug][gh_vim_plug] to manage plugin.
   - Add [some wellknown plugins](./src/vim/vimrc)
-
 - tmux:
-
   - Install from source version 3.0a
   - Add a theme and [some plugins](./src/tmux/tmux.conf) to make working with
     it easier.
-
 - Others:
   - git
   - [fzf][gh_fzf] for fuzzy searching files and command history.
@@ -35,6 +28,14 @@ down for working on the cloud.
     some 2 functions `export_function`, `export_alias`, which can be used to
     create project based function and alias. (Copied and modified from
     [here][gh_direnv_export])
+
+## Install
+
+**! Besure to read the scripts before executing !**
+
+```sh
+curl -s -S -L https://raw.githubusercontent.com/letientai299/eb-dotfiles/master/scripts/install.sh
+```
 
 ## Caveats
 

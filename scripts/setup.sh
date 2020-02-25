@@ -2,6 +2,12 @@
 # This scripts setting up the env.
 # This scripts assume that the location of
 
+echo_info() {
+  color=$(tput setaf 2)
+  reset=$(tput sgr0)
+  echo "${color}[INFO] $*${reset}"
+}
+
 # check for readlink/realpath presence
 # https://github.com/deadc0de6/dotdrop/issues/6
 rl="readlink -f"
@@ -15,10 +21,6 @@ if ! ${rl} "${0}" >/dev/null 2>&1; then
 fi
 
 export SCRIPT_DIR=$(dirname "$(${rl} "$0")")
-
-# Source the common.sh script
-# shellcheck source=./common.sh
-. "$SCRIPT_DIR/common.sh"
 
 echo_info "Install needed softwares"
 sudo yum install -y git zsh util-linux-user libevent-devel ncurses-devel gcc make pkg-config
