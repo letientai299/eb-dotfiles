@@ -1,0 +1,38 @@
+# vim:set et sw=2 ts=2 tw=79 ft=sh:
+
+export_function() {
+  local name=$1
+  local alias_dir=$PWD/.direnv/aliases
+  mkdir -p "$alias_dir"
+  PATH_add "$alias_dir"
+  local target="$alias_dir/$name"
+  if declare -f "$name" >/dev/null; then
+    echo "#!$SHELL" > "$target"
+    declare -f "$name" >> "$target" 2>/dev/null
+    # Notice that we add shell variables to the function trigger.
+    echo "$name \$*" >> "$target"
+    chmod +x "$target"
+  fi
+}
+
+ef() {
+    export_function $*
+}
+
+# Example: export_alias zz "ls -la"
+export_alias() {
+  local name=$1
+  shift
+  local alias_dir=$PWD/.direnv/aliases
+  local target="$alias_dir/$name"
+  mkdir -p "$alias_dir"
+  PATH_add "$alias_dir"
+  shell="$0"
+  echo "#!$SHELL -e" > "$target"
+  echo "$@" >> "$target"
+  chmod +x "$target"
+}
+
+ea() {
+    export_alias $*
+}

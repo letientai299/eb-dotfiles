@@ -37,6 +37,12 @@ set nofoldenable
 set tabstop=2 softtabstop=2 shiftwidth=2
 set ignorecase smartcase incsearch hls
 set encoding=utf8
+set bg=dark
+
+" Plugin mappings
+nmap <c-p> :Files<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <A-\> :NERDTreeFind<CR>
 
 try
     colorscheme hemisu
