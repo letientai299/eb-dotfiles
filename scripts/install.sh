@@ -30,4 +30,10 @@ if [ -d "~/.eb-dotfiles" ]; then
   exit 1
 fi
 
-echo Done
+mkdir ~/.eb-dotfiles
+curl https://codeload.github.com/letientai299/eb-dotfiles/zip/master \
+  --output ~/.eb-dotfiles/master.zip
+cd ~/.eb-dotfiles
+unzip master.zip -d .
+mv eb-dotfiles-master/* .
+~/.eb-dotfiles/scripts/setup.sh

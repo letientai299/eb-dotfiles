@@ -23,7 +23,7 @@ fi
 export SCRIPT_DIR=$(dirname "$(${rl} "$0")")
 
 echo_info "Install needed softwares"
-sudo yum install -y git zsh util-linux-user libevent-devel ncurses-devel gcc make pkg-config
+sudo yum install -y git zsh util-linux-user libevent-devel ncurses-devel gcc make pkg-config tree
 
 echo_info "Install zgen, which is used to manage zsh plugins"
 git clone --depth=1 https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"

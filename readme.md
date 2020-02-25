@@ -34,7 +34,7 @@ down for working on the cloud.
 **! Besure to read the scripts before executing !**
 
 ```sh
-curl -s -S -L https://raw.githubusercontent.com/letientai299/eb-dotfiles/master/scripts/install.sh
+bash < <(curl -s -S -L https://raw.githubusercontent.com/letientai299/eb-dotfiles/master/scripts/install.sh)
 ```
 
 ## Caveats
