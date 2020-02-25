@@ -24,7 +24,7 @@ echo_info "Install needed softwares"
 sudo yum install -y git zsh util-linux-user libevent-devel ncurses-devel gcc make pkg-config
 
 echo_info "Install zgen, which is used to manage zsh plugins"
-git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+git clone --depth=1 https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 
 echo_info "change ec2-user shell to zsh"
 sudo chsh -s $(which zsh) ec2-user
@@ -43,7 +43,7 @@ vim -c "PlugUpgrade" -c "qa!"
 vim -c "PlugUpdate" -c "qa!"
 
 echo_info "Install ranger"
-git clone https://github.com/ranger/ranger ~/.ranger
+git clone --depth=1 https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && sudo make install
 
 echo_info "Install tmux"
@@ -61,11 +61,11 @@ echo_info "Create symlinks tmux"
 ln -fs $SCRIPT_DIR/../src/tmux/tmux.conf ~/.tmux.conf
 
 echo_info "Install tmux plugins"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 echo_info "Install direnv"
-sudo yum install https://kojipkgs.fedoraproject.org//vol/fedora_koji_archive02/packages/direnv/2.12.2/1.fc28/x86_64/direnv-2.12.2-1.fc28.x86_64.rpm
+sudo yum install -y https://kojipkgs.fedoraproject.org//vol/fedora_koji_archive02/packages/direnv/2.12.2/1.fc28/x86_64/direnv-2.12.2-1.fc28.x86_64.rpm
 
 echo_info "Done. You might want to log out and login again to reload the config"
 
