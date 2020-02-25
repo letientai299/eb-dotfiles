@@ -21,7 +21,7 @@ export SCRIPT_DIR=$(dirname "$(${rl} "$0")")
 . "$SCRIPT_DIR/common.sh"
 
 echo_info "Install needed softwares"
-sudo yum install -y git zsh util-linux-user
+sudo yum install -y git zsh util-linux-user libevent-devel ncurses-devel gcc make pkg-config
 
 echo_info "Install zgen, which is used to manage zsh plugins"
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
@@ -42,12 +42,30 @@ echo_info "Install vim plugins"
 vim -c "PlugUpgrade" -c "qa!"
 vim -c "PlugUpdate" -c "qa!"
 
-echo_info "install ranger"
+echo_info "Install ranger"
 git clone https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && sudo make install
 # This is needed to start ranger
 echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.zshrc
 echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages" >>~/.bashrc
+
+echo_info "Install tmux"
+mkdir ~/.tmux-source &&
+  cd ~/.tmux-source &&
+  wget https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz &&
+  tar -zxf tmux-*.tar.gz &&
+  cd tmux-*/ &&
+  ./configure &&
+  make &&
+  sudo make install &&
+  cd ~ && rm -rf ~/.tmux-source
+
+echo_info "Create symlinks tmux"
+ln -fs $SCRIPT_DIR/../src/tmux/tmux.conf ~/.tmux.conf
+
+echo_info "Install tmux plugins"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
 
 echo_info "Done. You might want to log out and login again to reload the config"
 
