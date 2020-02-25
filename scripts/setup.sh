@@ -2,6 +2,8 @@
 # This scripts setting up the env.
 # This scripts assume that the location of
 
+local TERM='ansi'
+
 echo_info() {
   color=$(tput setaf 2)
   reset=$(tput sgr0)
