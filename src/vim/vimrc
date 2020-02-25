@@ -39,6 +39,10 @@ set ignorecase smartcase incsearch hls
 set encoding=utf8
 set bg=dark
 
+" make the backgrond color work with tmux over ssh
+" https://superuser.com/a/562423
+set t_ut=
+
 " Plugin mappings
 nmap <c-p> :Files<CR>
 nnoremap <C-\> :NERDTreeToggle<CR>
