@@ -33,4 +33,6 @@ alias :q="exit"
 # this is needed for ranger to work
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
+export PATH="$PATH:$HOME/.local/bin"
+
 eval "$(direnv hook zsh)"
