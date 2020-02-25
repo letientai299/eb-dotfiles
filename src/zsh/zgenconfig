@@ -1,0 +1,31 @@
+# vim:set et sw=2 ts=2 tw=79 ft=sh:
+
+# Disable oh-my-zsh update
+export DISABLE_AUTO_UPDATE=true
+
+# Load zgen
+. "$HOME/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+
+  # plugins from the oh-my-zsh repo
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/z
+  zgen oh-my-zsh plugins/aws
+  zgen oh-my-zsh plugins/nginx
+  zgen oh-my-zsh themes/bira
+
+
+  # other plugins
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zsh-users/zsh-completions src
+  zgen load hlissner/zsh-autopair
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+autoload -U compinit && compinit
+SPACESHIP_EXIT_CODE_SHOW=true

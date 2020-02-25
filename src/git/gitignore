@@ -1,0 +1,59 @@
+.env/
+.dump/
+*.dump
+
+# Vim
+# temp file
+*.vim~
+
+.DS_Store
+
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# persistent undo
+*.un~
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# Auto generated tag files
+tags
+.gradletasknamecache
+
+# VScode
+*.browse.VC.*
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+.gradletasknamecache
+
+# Intellij*
+.idea/
+*.iml
+out/
+
+# Node js
+node_modules
+.tern-port
+hs_err*
+
+.vscode
+
+yarn-error.log
+yarn.lock
+
+.env
+.envrc
+.direnv
+
+vendor/
+
+_notes/
+.*pid*
+tmux-client*.log
+

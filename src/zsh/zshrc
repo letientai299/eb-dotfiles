@@ -1,0 +1,31 @@
+# Put the dotfile location into path
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export DOTFILES="$(dirname $(realpath ~/.zshrc))"
+else
+  export DOTFILES="$(dirname $(readlink -f ~/.zshrc))"
+fi
+
+# Load zgen config
+source "$DOTFILES/zgenconfig";
+
+# Disable beeps
+setopt no_beep
+
+# Ignore dups
+setopt hist_ignore_dups
+
+# enable edit-command-line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Remove the duplicated entries in path
+typeset -U PATH
+
+# aliasing
+alias ve="vim ~/.zshrc"
+alias se="source ~/.zshrc"
+alias :q="exit"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
