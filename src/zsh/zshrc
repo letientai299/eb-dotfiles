@@ -36,3 +36,8 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PATH="$PATH:$HOME/.local/bin"
 
 eval "$(direnv hook zsh)"
+
+# Load per machine setting
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
