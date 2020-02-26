@@ -74,6 +74,7 @@ mkdir -p ~/.config && ln -fs $SCRIPT_DIR/../src/direnv ~/.config/direnv
 
 echo_info "Config global gitignore"
 git config --global core.excludesfile '~/.gitignore'
+ln -fs $SCRIPT_DIR/../src/git/gitignore ~/.gitignore
 
 echo_info "Done. You might want to log out and login again to reload the config"
 
