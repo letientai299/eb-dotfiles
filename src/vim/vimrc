@@ -19,6 +19,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+Plug 'Chiel92/vim-autoformat'
+
+" Load the local config. Put it here so that we can use other plugins as well.
+if !empty(glob("~/.vimrc.local"))
+  source ~/.vimrc_local
+endif
+
 call plug#end()
 
 set nu cursorline
@@ -38,6 +45,12 @@ set tabstop=2 softtabstop=2 shiftwidth=2
 set ignorecase smartcase incsearch hls
 set encoding=utf8
 set bg=dark
+
+" disable auto insert comment prefix
+set formatoptions-=cro
+
+" set python3 host
+let g:python3_host_prog='/usr/bin/python3'
 
 " make the backgrond color work with tmux over ssh
 " https://superuser.com/a/562423

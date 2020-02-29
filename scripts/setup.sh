@@ -46,6 +46,13 @@ echo_info "Install vim plugins"
 vim -c "PlugUpgrade" -c "qa!"
 vim -c "PlugUpdate" -c "qa!"
 
+echo_info "Install python3"
+sudo yum install python36 -y
+sudo python3 -m pip install pynvim
+
+echo_info "Install pynvim for vim-autoformat"
+python3 -m pip install pynvim
+
 echo_info "Install ranger"
 git clone https://github.com/ranger/ranger ~/.ranger
 cd ~/.ranger && git checkout v1.9.3 && env PREFIX=~/.local make install
