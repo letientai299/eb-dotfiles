@@ -33,6 +33,9 @@ down for working on the cloud.
 
 **! Besure to read the scripts before executing !**
 
+**! This will destroy your existing dotfiles. Again, this means to be used on
+Beanstalk container and disposable EC2 instance !**
+
 ```sh
 bash < <(curl -s -S -L https://raw.githubusercontent.com/letientai299/eb-dotfiles/master/scripts/install.sh)
 ```
